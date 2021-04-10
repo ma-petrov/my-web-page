@@ -1,0 +1,25 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: monospace;
+    font-size: 2vw;
+}
+
+.bio {
+    position: absolute;
+    top: 10vw;
+    left: calc(100vw/3);
+    width: calc(100vw/3);
+    height: 20vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.photo {
+    position: absolute;
+    top: calc(10vw/3 + 10vw);
+    left: calc(100vw/3 - 5vw);
+    width: 10vw;
+    height: 10vw;
+    border-radius: 5vw;
+}
