@@ -1,6 +1,5 @@
 body {
-    font-family: monospace;
-    font-size: 2vh;
+    /* font-family: monospace; */
     /* border: 1px solid red; */
 }
 
@@ -11,10 +10,58 @@ body {
         margin-right: auto;
     
         /* top: 100px; */
-        width: calc(min(600px, 90vw));
+        width: calc(min(700px, 90vw));
         height: 1800px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         /* border-radius: 5px; */
+    }
+
+
+
+    /* Heading section */
+
+    .bio-header-container {
+        display: inline-block;
+        width: inherit;
+        /* background-color: #ffff99; */
+        /* border-radius: 5px 5px 0 0; */
+        border: solid black;
+        border-width: 0 0 1px 0;
+    }
+
+    .bio-header-container-big {
+        height: calc(100px + 200px/3);
+    }
+
+    .bio-header-container-small {
+        height: calc(50px + 200px/3); 
+    }
+
+
+
+    /* Image container */
+
+    .bio-header-img-container {
+        float: left;
+        /* border: 1px solid red; */
+        height: inherit;
+    }
+
+    .bio-header-img-container-big {
+        width: 125px;
+    }
+
+    .bio-header-img-container-small {
+        width: calc(100px + 200px/3);
+    }
+
+
+
+    .bio-header-name-and-contacts-container {
+        float: left;
+        /* border: 1px solid blue; */
+        /* display: block; */
+        margin-top: calc(200px/3);
     }
 
 
@@ -23,10 +70,10 @@ body {
 
     .avatar {
         position: relative;
+        top: calc(200px/3);
     }
 
     .avatar-sticking-out {
-        top: calc(200px/3);
         left: -100px;
         width: 200px;
         height: 200px;
@@ -34,7 +81,6 @@ body {
     }
     
     .avatar-inner {
-        top: calc(200px/3);
         left: calc(100px/3);
         width: 100px;
         height: 100px;
@@ -43,22 +89,28 @@ body {
 
 
 
-    /* Heading section */
+    /* Name and contacts */
 
-    .bio-header {
-        width: inherit;
-        /* background-color: #ffff99; */
-        /* border-radius: 5px 5px 0 0; */
-        border: solid black;
-        border-width: 0 0 1px 0;
+    .header-text {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        /* color: black; */
     }
 
-    .bio-header-big {
-        height: calc(100px + 200px/3);
+    .header-text-big {
+        font-size: 25px;
     }
 
-    .bio-header-small {
-        height: calc(50px + 200px/3); 
+    .header-text-small {
+        font-size: 15px;
+    }
+
+    .name {
+        color: black;
+        font-weight: bolder;
+    }
+
+    .contacts {
+        color: gray;
     }
 }
 
