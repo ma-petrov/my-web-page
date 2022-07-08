@@ -1,0 +1,50 @@
+services:
+  database:
+    image: postgres
+    healthcheck:
+      test: pg_isready
+    environment:
+      POSTGRES_PASSWORD: "${DB_PASSWORD:?please set database password}"
+      POSTGRES_DB: 'neyron'
+      POSTGRES_USER: 'user'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+      args:
+        - PORT=8080
+    environment:
+      DB_HOST: database
+      DB_PASSWORD:
+    volumes:
+      - uploads:/usr/src/images/uploads/
+    depends_on:
+      - database
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    environment:
+      VIRTUAL_HOST:
+      LETSENCRYPT_HOST:
+    volumes:
+      - uploads:/images/uploads
+    depends_on:
+      - web
+    networks:
+      - nginx-proxy
+      - default
+
+volumes:
+  uploads:
+    name: "${DEPLOY_ENV:-dev}-uploads"
+  db-data:
+    name: "${DEPLOY_ENV:-dev}-routsweb-db"
+
+networks:
+  default:
+  nginx-proxy:
+    external: true

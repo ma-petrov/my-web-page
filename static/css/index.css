@@ -1,0 +1,82 @@
+:root {
+    --light-color: lightgrey;
+    --accent-color: #40A0FF;
+    --text-color: black;
+
+    --topbar-height: 60px;
+}
+
+body {
+    margin: 0px;
+    font-family: 'VisiaPro';
+	font-style: normal;
+	font-weight: normal;
+    font-size: 20px;
+}
+
+.center-column-container {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+}
+
+.topbar-container {
+    border-bottom: 1px solid var(--light-color);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    height: var(--topbar-height);
+}
+
+.topbar-element {
+    height: var(--topbar-height);
+    line-height: var(--topbar-height);
+    cursor: pointer;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.avatar {
+    object-fit: cover;
+}
+
+.text {
+    width: inherit;
+    text-align: center;
+}
+
+.name {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.cn-links-container {
+    margin-top: 50px;
+}
+
+.cn-link {
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    object-fit: cover;
+}
+.cn-link:hover {
+    width: 44px;
+    height: 44px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
