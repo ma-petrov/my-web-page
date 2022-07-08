@@ -80,3 +80,9 @@ body {
     margin-bottom: 0px;
 }
 
+.title {
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: left;
+}
+

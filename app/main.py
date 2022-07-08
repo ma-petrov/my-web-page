@@ -4,7 +4,6 @@ from aiohttp import web
 async def handle(request):
     with open('templates/index.html', 'r') as f:
         text = f.read()
-    # return web.Response(text=text)
     return web.Response(text=text, content_type='text/html')
 
 app = web.Application()
