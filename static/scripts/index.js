@@ -98,9 +98,19 @@ function resize() {
     setAvatarSize(Math.min(clientWidth, 600));
 }
 
+function showTabsOnLoad() {
+    let i = 400;
+    [...tabSwitches].forEach(ts => {
+        setTimeout(() => { ts.style.fontSize = "24px"; }, i);
+        setTimeout(() => { ts.style.fontSize = "20px"; }, i + 500);
+        i += 400;
+    })
+}
+
 window.onresize = resize;
 
 window.onload = () => {
     resize();
     switchTabs('about-me');
+    showTabsOnLoad();
 }
