@@ -34,12 +34,6 @@ body {
 .topbar-element-container {
     display: flex;
     height: var(--topbar-height);
-    border-radius: calc(var(--topbar-height) / 2);
-}
-
-.topbar-element-spacer {
-    width: calc(var(--topbar-height) / 2);
-    height: var(--topbar-height);
 }
 
 .topbar-element {
