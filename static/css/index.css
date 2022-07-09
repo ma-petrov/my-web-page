@@ -31,11 +31,6 @@ body {
     height: var(--topbar-height);
 }
 
-.topbar-element-container {
-    display: flex;
-    height: var(--topbar-height);
-}
-
 .topbar-element {
     box-sizing: border-box;
     height: var(--topbar-height);

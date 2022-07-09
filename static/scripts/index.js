@@ -77,29 +77,9 @@ function resize() {
     setAvatarSize(Math.min(clientWidth, 600));
 }
 
-function highlightTab(tab, timeout) {
-    setTimeout(() => { tab.style.backgroundColor = "#F0F0F0"; }, timeout);
-    setTimeout(() => { tab.style.backgroundColor = "#E8E8E8"; }, timeout + 50);
-    setTimeout(() => { tab.style.backgroundColor = "#E0E0E0"; }, timeout + 100);
-    setTimeout(() => { tab.style.backgroundColor = "#D8D8D8"; }, timeout + 100);
-    setTimeout(() => { tab.style.backgroundColor = "#E0E0E0"; }, timeout + 150);
-    setTimeout(() => { tab.style.backgroundColor = "#E8E8E8"; }, timeout + 200);
-    setTimeout(() => { tab.style.backgroundColor = "#F0F0F0"; }, timeout + 250);
-    setTimeout(() => { tab.style.backgroundColor = "var(--bg-color)"; }, timeout + 300);
-}
-
-function showTabsOnLoad() {
-    let timeout = 250;
-    [...document.getElementsByClassName("topbar-element-container")].forEach(tab => {
-        highlightTab(tab, timeout);
-        timeout += 250;
-    })
-}
-
 window.onresize = resize;
 
 window.onload = () => {
     resize();
     switchTabs('about-me');
-    showTabsOnLoad();
 }
