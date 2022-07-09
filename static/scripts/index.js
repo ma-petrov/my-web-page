@@ -10,7 +10,7 @@ function activateTabsSwitch(ts) {
 
 function deactivateTabsSwitch(ts) {
     ts.style.color = "var(--text-color)";
-    ts.style.borderBottom = "3px solid var(--bg-color)";
+    ts.style.borderBottom = "3px solid transparent";
 }
 
 function activateTab(t) {
@@ -73,37 +73,26 @@ function setAvatarSize(width) {
 
 function resize() {
     const clientWidth = document.documentElement.clientWidth;
-
-    // let width = 800;
-    // if (clientWidth < 820) {
-    //     width = clientWidth - 20;
-    // }
-    // setCenterColumnContainersWidth(width);
-    // setAvatarSize(width);
-
-    if (clientWidth < 820) {
-        setCenterColumnContainersWidth(clientWidth - 20);
-    }
-    else {
-        setCenterColumnContainersWidth(800);
-    }
-
-    // if (clientWidth < 600) {
-    //     setAvatarSize(clientWidth);
-    // }
-    // else {
-    //     setAvatarSize(600);
-    // }
-
+    setCenterColumnContainersWidth(Math.min(clientWidth - 20, 800));
     setAvatarSize(Math.min(clientWidth, 600));
 }
 
+function highlightTab(tab, timeout) {
+    setTimeout(() => { tab.style.backgroundColor = "#F0F0F0"; }, timeout);
+    setTimeout(() => { tab.style.backgroundColor = "#E8E8E8"; }, timeout + 50);
+    setTimeout(() => { tab.style.backgroundColor = "#E0E0E0"; }, timeout + 100);
+    setTimeout(() => { tab.style.backgroundColor = "#D8D8D8"; }, timeout + 100);
+    setTimeout(() => { tab.style.backgroundColor = "#E0E0E0"; }, timeout + 150);
+    setTimeout(() => { tab.style.backgroundColor = "#E8E8E8"; }, timeout + 200);
+    setTimeout(() => { tab.style.backgroundColor = "#F0F0F0"; }, timeout + 250);
+    setTimeout(() => { tab.style.backgroundColor = "var(--bg-color)"; }, timeout + 300);
+}
+
 function showTabsOnLoad() {
-    let i = 400;
-    [...tabSwitches].forEach(ts => {
-        setTimeout(() => { ts.style.fontSize = "24px"; }, i);
-        setTimeout(() => { ts.style.fontSize = "20px"; }, i + 500);
-        i += 400;
+    let timeout = 250;
+    [...document.getElementsByClassName("topbar-element-container")].forEach(tab => {
+        highlightTab(tab, timeout);
+        timeout += 250;
     })
 }
 

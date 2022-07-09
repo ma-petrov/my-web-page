@@ -31,13 +31,24 @@ body {
     height: var(--topbar-height);
 }
 
+.topbar-element-container {
+    display: flex;
+    height: var(--topbar-height);
+    border-radius: calc(var(--topbar-height) / 2);
+}
+
+.topbar-element-spacer {
+    width: calc(var(--topbar-height) / 2);
+    height: var(--topbar-height);
+}
+
 .topbar-element {
     box-sizing: border-box;
     height: var(--topbar-height);
     line-height: var(--topbar-height);
     cursor: pointer;
-    border-top: 3px solid var(--bg-color);
-    border-bottom: 3px solid var(--bg-color);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
 }
 
 .avatar-container {
