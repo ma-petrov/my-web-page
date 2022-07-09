@@ -5,10 +5,12 @@ const tabSwitches = document.getElementsByClassName("topbar-element");
 
 function activateTabsSwitch(ts) {
     ts.style.color = "var(--accent-color)";
+    ts.style.borderBottom = "3px solid var(--accent-color)";
 }
 
 function deactivateTabsSwitch(ts) {
     ts.style.color = "var(--text-color)";
+    ts.style.borderBottom = "3px solid var(--bg-color)";
 }
 
 function activateTab(t) {
@@ -93,7 +95,7 @@ function resize() {
     //     setAvatarSize(600);
     // }
 
-    setAvatarSize(min(clientWidth, 600));
+    setAvatarSize(Math.min(clientWidth, 600));
 }
 
 window.onresize = resize;

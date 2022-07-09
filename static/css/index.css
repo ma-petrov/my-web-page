@@ -1,4 +1,5 @@
 :root {
+    --bg-color: white;
     --light-color: lightgrey;
     --accent-color: #40A0FF;
     --text-color: black;
@@ -31,17 +32,20 @@ body {
 }
 
 .topbar-element {
+    box-sizing: border-box;
     height: var(--topbar-height);
     line-height: var(--topbar-height);
     cursor: pointer;
+    border-top: 3px solid var(--bg-color);
+    border-bottom: 3px solid var(--bg-color);
 }
 
 .avatar-container {
     display: flex;
     justify-content: center;
     width: inherit;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .avatar {
