@@ -40,8 +40,8 @@ body {
     display: flex;
     justify-content: center;
     width: inherit;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .avatar {

@@ -71,12 +71,27 @@ function setAvatarSize(width) {
 
 function resize() {
     const clientWidth = document.documentElement.clientWidth;
-    let width = 800;
+
+    // let width = 800;
+    // if (clientWidth < 820) {
+    //     width = clientWidth - 20;
+    // }
+    // setCenterColumnContainersWidth(width);
+    // setAvatarSize(width);
+
     if (clientWidth < 820) {
-        width = clientWidth - 20;
+        setCenterColumnContainersWidth(clientWidth - 20);
     }
-    setCenterColumnContainersWidth(width);
-    setAvatarSize(width);
+    else {
+        setCenterColumnContainersWidth(800);
+    }
+
+    if (clientWidth < 600) {
+        setAvatarSize(clientWidth);
+    }
+    else {
+        setAvatarSize(300);
+    }
 }
 
 window.onresize = resize;
