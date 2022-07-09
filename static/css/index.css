@@ -1,7 +1,8 @@
 :root {
     --bg-color: white;
     --light-color: lightgrey;
-    --accent-color: #40A0FF;
+    --dark-color: darkgrey;
+    --accent-color: #209CEE;
     --text-color: black;
 
     --topbar-height: 60px;
@@ -13,6 +14,11 @@ body {
 	font-style: normal;
 	font-weight: normal;
     font-size: 20px;
+    overflow-y: scroll;
+}
+
+li {
+    margin-top: 10px;
 }
 
 .center-column-container {
@@ -63,6 +69,8 @@ body {
 }
 
 .cn-links-container {
+    display: flex;
+    justify-content: center;
     margin-top: 50px;
 }
 
@@ -90,3 +98,24 @@ body {
     text-align: left;
 }
 
+.subtitle {
+    margin-top: 20px;
+}
+
+.text-left-align {
+    margin-top: 10px;
+}
+
+.margin-top-50px {
+    margin-top: 50px;
+}
+
+.tail {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--dark-color);
+}
+.tail a {text-decoration: none;}
+.tail a:active {color: var(--dark-color);}
+.tail a:visited {color: var(--dark-color);}
