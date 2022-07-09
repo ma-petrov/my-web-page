@@ -61,8 +61,8 @@ function setCenterColumnContainersWidth(width) {
 }
 
 function setAvatarSize(width) {
-    const avatarSize = `${Math.round(width/3, 3).toString()}px`;
-    const avatarRadius = `${Math.round(width/6, 3).toString()}px`;
+    const avatarSize = `${Math.round(width/2, 3).toString()}px`;
+    const avatarRadius = `${Math.round(width/4, 3).toString()}px`;
     console.log(`avatar size == ${avatarSize}`)
     avatar.style.width = avatarSize;
     avatar.style.height = avatarSize;
@@ -86,12 +86,14 @@ function resize() {
         setCenterColumnContainersWidth(800);
     }
 
-    if (clientWidth < 600) {
-        setAvatarSize(clientWidth);
-    }
-    else {
-        setAvatarSize(300);
-    }
+    // if (clientWidth < 600) {
+    //     setAvatarSize(clientWidth);
+    // }
+    // else {
+    //     setAvatarSize(600);
+    // }
+
+    setAvatarSize(min(clientWidth, 600));
 }
 
 window.onresize = resize;
