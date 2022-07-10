@@ -21,6 +21,20 @@ li {
     margin-top: 10px;
 }
 
+button {
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .center-column-container {
     display: flex;
     justify-content: center;
@@ -102,9 +116,16 @@ li {
     margin-top: 20px;
 }
 
+.horizontal-button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .text-left-align {
     margin-top: 10px;
 }
+.text-left-align a:active {color: var(--text-color);}
+.text-left-align a:visited {color: var(--text-color);}
 
 .margin-top-50px {
     margin-top: 50px;
