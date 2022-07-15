@@ -19,6 +19,7 @@ body {
 
 li {
     margin-top: 10px;
+    text-align: justify;
 }
 
 button {
@@ -123,11 +124,12 @@ button {
     justify-content: center;
 }
 
-.text-left-align {
+.text-justify-align {
     margin-top: 10px;
+    text-align: justify;
 }
-.text-left-align a:active {color: var(--text-color);}
-.text-left-align a:visited {color: var(--text-color);}
+.text-justify-align a:active {color: var(--text-color);}
+.text-justify-align a:visited {color: var(--text-color);}
 
 .margin-top-50px {
     margin-top: 50px;
