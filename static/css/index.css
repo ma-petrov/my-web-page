@@ -124,6 +124,7 @@ button {
 .horizontal-button-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .text-justify-align {
