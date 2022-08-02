@@ -9,14 +9,108 @@
     </head>
 
     <body>
-        <div class="x-center-container topbar-container">
-            <div class="container topbar">
-                <span class="topbar-element" id="about-me">ABOUT ME</span>
-                <span class="topbar-element" id="cv">CV</span>
-                <span class="topbar-element" id="contact">CONTACT</span>
+        <div class="container about-me" id="about-me">
+            <div class="y-center inherit-height">
+
+                <div class="x-center">
+                    <img class="avatar" id="avatar" src="/static/images/avatar.png" alt="clipdecliprepeat">
+                </div>
+
+                <div class="x-center double-margin-top title">Mikhail Petrov</div>
+                <div class="x-center">Python programmer</div>
+                <div class="x-center">Data analyst</div>
+
+                <div class="x-center full-margin-top" >
+                    <div class="y-center cn-link-container-height">
+                        <div class="x-center cn-link-container-width">
+                            <a href="mailto:petrov.ma@icloud.com">
+                                <img class="cn-link" src="/static/images/icons/email.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="y-center cn-link-container-height">
+                        <div class="x-center cn-link-container-width">
+                            <a href="https://www.linkedin.com/mwlite/in/михаил-петров-559b70240">
+                                <img class="cn-link" src="/static/images/icons/linkedin.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="y-center cn-link-container-height">
+                        <div class="x-center cn-link-container-width">
+                            <a href="https://t.me/clipdecliprepeat">
+                                <img class="cn-link" src="/static/images/icons/telegram.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="y-center cn-link-container-height">
+                        <div class="x-center cn-link-container-width">
+                            <a href="https://instagram.com/clipdecliprepeat">
+                                <img class="cn-link" src="/static/images/icons/instagram.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="y-center cn-link-container-height">
+                        <div class="x-center cn-link-container-width">
+                            <a href="https://github.com/ma-petrov">
+                                <img class="cn-link" src="/static/images/icons/github.svg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x-center button full-margin-top" id="open-cv-button">
+                    <div>
+                        <div class="x-center">CV</div>
+                        <div class="x-center arrow-container">
+                            <img class="arrow arrow-down" src="/static/images/icons/arrow-down.svg">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="x-center-container width-inherit">
+
+        <div class="container cv" id="cv">
+            <div class="y-center inherit-height">
+
+                <div class="x-center button full-margin-top" id="close-cv-button">
+                    <div>
+                        <div class="x-center arrow-container">
+                            <img class="arrow arrow-up" src="/static/images/icons/arrow-up.svg">
+                        </div>
+                        <div class="x-center">Back</div>
+                    </div>
+                </div>
+
+                <div class="x-center full-margin-top tail-margin-bottom">
+                    <div class="cv-content">
+                        <div class="title border-bottom double-margin-top">Experience</div>
+                        <div class="text-justify-align full-margin-top">OTP Bank (July 2019 - present), senior risk portfolio analyst</div>
+                        <div class="text-justify-align full-margin-top">Kazantracks project (April 2022 - present), fullstack developer</div>
+                        <div class="horizontal-button-container">
+                            <button onclick="location.href='https://kazantracks.ru';">Kazantracks website</button>
+                            <button onclick="location.href='https://github.com/ma-petrov/routsweb';">Project repository</button>
+                        </div>
+
+                        <div class="title border-bottom full-margin-top">Skills</div>
+                        <ul>
+                            <li>Python, Django, Asyncio, Aiohttp, JavaScript</li>
+                            <li>Oracle SQL, Postgresql</li>
+                            <li>Docker, Gunicorn, Nginx, Linux, Apache Airflow</li>
+                            <li>Statistics</li>
+                        </ul>
+
+                        <div class="title border-bottom full-margin-top">Education</div>
+                        <div class="text-justify-align">Higher School of Economics, 2017-2021, faculty of informatics and computer technology</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- <div class="x-center-container width-inherit">
             <div class="container data" id="about-me-data">
                 <div class="avatar-container">
                     <img class="avatar" id="avatar" src="/static/images/avatar.png" alt="clipdecliprepeat">
@@ -24,43 +118,7 @@
                 <div class="text name">Mikhail Petrov</div>
                 <div class="text">Risk portfolio analyst,</div>
                 <div class="text">Python programmer</div>
-                <div class="cn-links-container">
-                    <div class="y-center-container cn-link-container-height">
-                        <div class="x-center-container cn-link-container-width">
-                            <a href="mailto:petrov.ma@icloud.com">
-                                <img class="cn-link" src="/static/images/icons/email.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center-container cn-link-container-height">
-                        <div class="x-center-container cn-link-container-width">
-                            <a href="https://www.linkedin.com/mwlite/in/михаил-петров-559b70240">
-                                <img class="cn-link" src="/static/images/icons/linkedin.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center-container cn-link-container-height">
-                        <div class="x-center-container cn-link-container-width">
-                            <a href="https://t.me/clipdecliprepeat">
-                                <img class="cn-link" src="/static/images/icons/telegram.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center-container cn-link-container-height">
-                        <div class="x-center-container cn-link-container-width">
-                            <a href="https://instagram.com/clipdecliprepeat">
-                                <img class="cn-link" src="/static/images/icons/instagram.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center-container cn-link-container-height">
-                        <div class="x-center-container cn-link-container-width">
-                            <a href="https://github.com/ma-petrov">
-                                <img class="cn-link" src="/static/images/icons/github.svg">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="container data" id="cv-data">
@@ -102,12 +160,7 @@
                 <div class="text-justify-align">Mail - <a href="mailto:petrov.ma@icloud.com">petrov.ma@icloud.com</a></div>
                 <div class="text-justify-align">GitHub - <a href="https://github.com/ma-petrov">https://github.com/ma-petrov</a></div>
                 <div class="text-justify-align">Moscow</div>
-            </div>
-        </div>
-
-        <div class="x-center-container tail">
-            2022,
-            <a href=https://github.com/ma-petrov/my-web-page><span>This page repository</span></a>
+            </div> -->
         </div>
     </body>
 

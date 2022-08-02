@@ -1,14 +1,157 @@
 :root {
-    --bg-color: white;
+    --bg-color-light: white;
+    --bg-color-dark: #303030;
+
+    --main-color-light: black;
+    --main-color-dark: white;
+
     --light-color: lightgrey;
     --dark-color: darkgrey;
     --accent-color: #209CEE;
-    --text-color: black;
-
-    --topbar-height: 60px;
 }
 
 body {
+    margin: 0px;
+    font-family: 'VisiaPro';
+	font-style: normal;
+	font-weight: normal;
+    font-size: min(4vw, 2vh);
+    overflow: hidden;
+}
+
+.container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    transition: ease;
+    transition-property: top;
+    transition-duration: 0.5s;
+}
+
+.x-center {
+    display: flex;
+    justify-content: center;
+}
+
+.y-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inherit-width {width: inherit;}
+.inherit-height {height: inherit;}
+
+.about-me {
+    top: 0vh;
+    color: var(--main-color-light);
+    background-color: var(--bg-color-light);
+}
+
+.button {cursor: pointer;}
+
+.cv {
+    top: 100vh;
+    color: var(--main-color-dark);
+    background-color: var(--bg-color-dark);
+}
+
+.avatar {
+    width: min(50vw, 25vh);
+    height: min(50vw, 25vh);
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.full-margin-top {margin-top: min(5vw, 2.5vh);}
+.double-margin-top {margin-top: min(10vw, 5vh);}
+
+.cn-link-container-width {width: min(16vw, 8vh);}
+.cn-link-container-height {height: min(16vw, 8vh);}
+
+.cn-link {
+    width: min(12vw, 6vh);
+    height: min(12vw, 6vh);
+    object-fit: cover;
+    transition: ease;
+    transition-property: all;
+    transition-duration: 0.15s;
+}
+.cn-link:hover {
+    width: min(16vw, 8vh);
+    height: min(16vw, 8vh);
+}
+
+.arrow-container {height: min(6vw, 3vh);}
+
+.arrow {
+    height: min(4vw, 2vh);
+    object-fit: cover;
+}
+
+.arrow-down {animation: arrow-down-animation 1s infinite;}
+.arrow-up {animation: arrow-up-animation 1s infinite;}
+.arrow-up .path{
+    fill: #fff;
+}
+
+@keyframes arrow-down-animation {
+    from {margin-top: 0vh;}
+    50% {margin-top: min(2vw, 1vh)}
+    to {margin-top: 0vh;}
+}
+
+@keyframes arrow-up-animation {
+    from {margin-top: min(2vw, 1vh);}
+    50% {margin-top: 0vh;}
+    to {margin-top: min(2vw, 1vh);}
+}
+
+.cv-content {width: min(90vw, 50vh);}
+
+.border-bottom {border-bottom: 1px solid var(--main-color-dark)}
+
+.horizontal-button-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+#cv button {
+    height: min(7vw, 3.5vh);
+    margin-top: min(2vw, 1vh);
+    margin-right: min(2vw, 1vh);
+    padding-left: min(2vw, 1vh);
+    padding-right: min(2vw, 1vh);
+    color: var(--main-color-dark);
+    background-color: transparent;
+    border: 1px solid var(--light-color);
+    border-radius: min(1vw, 0.5vh);
+    font-size: min(3vw, 1.5vh);
+    cursor: pointer;
+}
+
+#cv li {
+    font-size: min(4vw, 2vh);
+    text-align: justify;
+}
+
+
+.title {
+    margin-bottom: min(2.5vw, 1.25vh);;
+    font-size: min(6vw, 3vh);
+}
+.text-justify-align {
+    font-size: min(4vw, 2vh);
+    text-align: justify;
+}
+
+.tail-margin-bottom {
+    margin-bottom: min(30vw, 15vh);
+}
+
+
+/* body {
     margin: 0px;
     font-family: 'VisiaPro';
 	font-style: normal;
@@ -17,64 +160,15 @@ body {
     overflow-y: scroll;
 }
 
+container {width: min(90vw, 800px);}
+
 li {
     margin-top: 10px;
     text-align: justify;
 }
 
-button {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: var(--text-color);
-    background-color: transparent;
-    border: 1px solid var(--light-color);
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-}
 
-.x-center-container {
-    display: flex;
-    justify-content: center;
-}
 
-.y-center-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.width-inherit {width: inherit;}
-
-.topbar-container {
-    border-bottom: 1px solid var(--light-color);
-}
-
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    height: var(--topbar-height);
-}
-
-.topbar-element {
-    box-sizing: border-box;
-    height: var(--topbar-height);
-    line-height: var(--topbar-height);
-    cursor: pointer;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-}
-
-.avatar-container {
-    display: flex;
-    justify-content: center;
-    width: inherit;
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
 
 .avatar {
     object-fit: cover;
@@ -85,31 +179,6 @@ button {
     text-align: center;
 }
 
-.name {
-    font-size: 30px;
-    margin-bottom: 50px;
-}
-
-.cn-links-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.cn-link-container-width {width: 80px;}
-.cn-link-container-height {height: 80px;}
-
-.cn-link {
-    width: 64px;
-    height: 64px;
-    object-fit: cover;
-    transition: ease;
-    transition-duration: 0.15s;
-}
-.cn-link:hover {
-    width: 80px;
-    height: 80px;
-}
 
 .title {
     margin-top: 50px;
@@ -147,4 +216,4 @@ button {
 }
 .tail a {text-decoration: none;}
 .tail a:active {color: var(--dark-color);}
-.tail a:visited {color: var(--dark-color);}
+.tail a:visited {color: var(--dark-color);} */
