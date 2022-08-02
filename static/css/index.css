@@ -36,11 +36,18 @@ button {
     cursor: pointer;
 }
 
-.center-column-container {
+.x-center-container {
     display: flex;
     justify-content: center;
-    width: inherit;
 }
+
+.y-center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.width-inherit {width: inherit;}
 
 .topbar-container {
     border-bottom: 1px solid var(--light-color);
@@ -89,24 +96,19 @@ button {
     margin-top: 50px;
 }
 
+.cn-link-container-width {width: 80px;}
+.cn-link-container-height {height: 80px;}
+
 .cn-link {
-    width: 56px;
-    height: 56px;
-    margin: 2px;
-    /* margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 2px;
-    margin-bottom: 2px; */
+    width: 64px;
+    height: 64px;
     object-fit: cover;
+    transition: ease;
+    transition-duration: 0.15s;
 }
 .cn-link:hover {
-    width: 60px;
-    height: 60px;
-    margin: 0px;
-    /* margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px; */
+    width: 80px;
+    height: 80px;
 }
 
 .title {
@@ -136,6 +138,7 @@ button {
 }
 
 .tail {
+    width: inherit;
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
