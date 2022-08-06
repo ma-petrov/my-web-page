@@ -3,11 +3,6 @@
 	font-style: normal;
 	font-weight: normal;
 	src:
-        /* local('Antipasto Pro'),
-		url('AntipastoPro-Regular.woff2') format('woff2'), 
-		url('AntipastoPro-Regular.woff') format('woff'),
-		url('AntipastoPro-Regular.ttf') format('ttf'),
-		url('AntipastoPro-Regular.eot') format('eot'); */
 		url('/static/fonts/VisiaPro/VisiaPro-Light.woff2') format('woff2'), 
 		url('/static/fonts/VisiaPro/VisiaPro-Light.woff') format('woff'),
 		url('/static/fonts/VisiaPro/VisiaPro-Light.ttf') format('ttf'),
