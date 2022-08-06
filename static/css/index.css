@@ -16,8 +16,17 @@ body {
 	font-style: normal;
 	font-weight: normal;
     font-size: min(4vw, 2vh);
-    overflow: hidden;
+    overflow-y: hidden;
 }
+
+.scroll-turned-off {overflow-y: hidden;}
+
+
+
+
+/*
+ * Containers
+ */
 
 .container {
     position: fixed;
@@ -25,8 +34,67 @@ body {
     height: 100vh;
     transition: ease;
     transition-property: top;
-    transition-duration: 0.5s;
+    transition-duration: 1s;
 }
+
+.about-me {
+    top: 0vh;
+    color: var(--main-color-light);
+    background-color: var(--bg-color-light);
+}
+
+.cv {
+    top: 100vh;
+    color: var(--main-color-dark);
+    background-color: var(--bg-color-dark);
+    overflow-y: scroll;
+}
+
+.cv-transition-wrapper-h1 {
+    transition: ease;
+    transition-property: all;
+    transition-duration: 1s;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.cv-transition-wrapper-p {
+    transition: ease;
+    transition-property: all;
+    transition-duration: 1s;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.cv-transition-h1 {
+    opacity: 0;
+    transform: scale(1.3, 1);
+}
+
+.cv-transition-p {
+    opacity: 1;
+    transform: scale(1.3, 1);
+}
+
+.cv h1 {
+    margin-top: min(12vw, 6vh);
+    margin-bottom: min(4vw, 2vh);
+    padding-bottom: min(4vw, 2vh);
+    border-bottom: 1px solid var(--main-color-dark);
+    /* line-height: min(16vw, 8vh); */
+    font-size: min(8vw, 4vh);
+}
+
+.cv p {
+    margin-top: 0vh;
+    margin-bottom: min(4vw, 2vh);
+    /* line-height: min(10vw, 5vh); */
+    text-align: justify;
+    font-size: min(5vw, 2.5vh);
+}
+
+
+
 
 .x-center {
     display: flex;
@@ -37,24 +105,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: inherit;
 }
 
 .inherit-width {width: inherit;}
 .inherit-height {height: inherit;}
-
-.about-me {
-    top: 0vh;
-    color: var(--main-color-light);
-    background-color: var(--bg-color-light);
-}
-
-.button {cursor: pointer;}
-
-.cv {
-    top: 100vh;
-    color: var(--main-color-dark);
-    background-color: var(--bg-color-dark);
-}
 
 .avatar {
     width: min(50vw, 25vh);
@@ -67,7 +122,8 @@ body {
 .double-margin-top {margin-top: min(10vw, 5vh);}
 
 .cn-link-container-width {width: min(16vw, 8vh);}
-.cn-link-container-height {height: min(16vw, 8vh);}
+
+.contacts {height: min(16vw, 8vh);}
 
 .cn-link {
     width: min(12vw, 6vh);
@@ -132,15 +188,4 @@ body {
 .title {
     margin-bottom: min(2.5vw, 1.25vh);
     font-size: min(6vw, 3vh);
-}
-.cv .title {
-    margin-top: min(7.5vw, 3.75vh);
-    padding-bottom: min(2.5vw, 1.25vh);
-    border-bottom: 1px solid var(--main-color-dark);
-}
-
-.text-justify-align {
-    margin-bottom: min(2.5vw, 1.25vh);
-    font-size: min(4vw, 2vh);
-    text-align: justify;
 }
