@@ -4,21 +4,23 @@ services:
       context: .
       args:
         - PORT=8080
-
+    
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  
   nginx:
-    build:
-      context: .
-      dockerfile: nginx.Dockerfile
-    environment:
-      VIRTUAL_HOST:
-      LETSENCRYPT_HOST:
+    build: ./nginx.Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     depends_on:
       - web
-    networks:
-      - nginx-proxy
-      - default
-
-networks:
-  default:
-  nginx-proxy:
-    external: true
+      - certbot
