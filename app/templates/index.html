@@ -20,43 +20,19 @@
                 <div class="x-center">Python programmer</div>
                 <div class="x-center">Data analyst</div>
 
-                <div class="x-center full-margin-top">
-                    <div class="y-center cn-link-container-height">
-                        <div class="x-center cn-link-container-width">
-                            <a href="mailto:petrov.ma@icloud.com">
-                                <img class="cn-link" src="/static/images/icons/email.svg">
-                            </a>
+                {% if links %}
+                    <div class="x-center full-margin-top">
+                    {% for l in links %}
+                        <div class="y-center cn-link-container-height">
+                            <div class="x-center cn-link-container-width">
+                                <a href="{{ l.href }}">
+                                    <img class="cn-link" src="{{ l.img_src }}">
+                                </a>
+                            </div>
                         </div>
+                    {% endfor %}
                     </div>
-                    <div class="y-center cn-link-container-height">
-                        <div class="x-center cn-link-container-width">
-                            <a href="https://www.linkedin.com/mwlite/in/михаил-петров-559b70240">
-                                <img class="cn-link" src="/static/images/icons/linkedin.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center cn-link-container-height">
-                        <div class="x-center cn-link-container-width">
-                            <a href="https://t.me/clipdecliprepeat">
-                                <img class="cn-link" src="/static/images/icons/telegram.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center cn-link-container-height">
-                        <div class="x-center cn-link-container-width">
-                            <a href="https://instagram.com/clipdecliprepeat">
-                                <img class="cn-link" src="/static/images/icons/instagram.svg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="y-center cn-link-container-height">
-                        <div class="x-center cn-link-container-width">
-                            <a href="https://github.com/ma-petrov">
-                                <img class="cn-link" src="/static/images/icons/github.svg">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
 
                 <div class="x-center button full-margin-top" id="open-cv-button">
                     <div>
