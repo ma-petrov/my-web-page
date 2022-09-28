@@ -9,5 +9,4 @@ COPY ./requirments.txt .
 RUN pip install -r requirments.txt
 
 COPY app .
-RUN mkdir /usr/src/app/images
 CMD python3 ./main.py
