@@ -1,7 +1,5 @@
-import os
-
 from jinja2 import Template
-
+from aiohttp.web import Response
 
 def render_template(template: str, args: dict) -> str:
     """Get template name, dict of args and returns rendered string
@@ -13,4 +11,5 @@ def render_template(template: str, args: dict) -> str:
     """
     with open(template, 'r') as f:
         t = f.read()
-    return Template(t).render(**args)
+    text = Template(t).render(**args)
+    return Response(text=text, content_type='text/html')

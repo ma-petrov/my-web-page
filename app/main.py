@@ -1,10 +1,9 @@
-from os import path
-from aiohttp import web
+from aiohttp.web import Application, get, run_app
 
 from utils import render_template
 
 async def handle(request):
-    text = render_template(
+    return render_template(
         'templates/index.html',
         dict(links=[
             dict(href=l[0], img_src=l[1])
@@ -17,8 +16,7 @@ async def handle(request):
             ]
         ])
     )
-    return web.Response(text=text, content_type='text/html')
 
-app = web.Application()
-app.add_routes([web.get('/', handle)])
-web.run_app(app)
+app = Application()
+app.add_routes([get('/', handle)])
+run_app(app)
