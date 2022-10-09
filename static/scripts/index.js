@@ -56,7 +56,7 @@ function handleTouchMove(e) {
     if (!touchY) {
         return;
     }
-    scroll(touchY - getY(e));
+    scroll(getY(e) - touchY);
     touchY = null;                                             
 };
 
