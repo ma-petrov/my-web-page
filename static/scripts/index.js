@@ -46,22 +46,8 @@ function scroll(deltaY) {
 document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
 document.addEventListener("wheel", (e) => {scroll(e.wheelDeltaY)});
-document.addEventListener("touchmove", (e) => {
-    m = ""
-    e.touches.forEach(t => {
-        m += t.clientY.toString() + " ";
-    });
-    window.alert(m);
-});
-document.addEventListener("scroll", (e) => {
-    let d = 0;
-    try {
-        d = e.deltaY;
-        window.alert(`scroll ${d}`);
-    } catch (error) {
-        window.alert(`Error: ${error}`);
-    }
-    scroll(d);
+myBlock.addEventListener("swipe", function() {
+    window.alert(e.detail);
 });
 
 // document.addEventListener("scroll", () => {
