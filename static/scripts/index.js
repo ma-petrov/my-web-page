@@ -5,8 +5,8 @@ const aboutMe = document.getElementById("about-me");
 const cv = document.getElementById("cv");
 
 let currentPage = ABOUT_ME;
-let ticking = false;
-let lastKnownScrollPosition = 0;
+let ticking = false;                      
+let touchY = null;
 
 function openCvPage() {
     if (currentPage == ABOUT_ME) {
@@ -33,41 +33,35 @@ function switchPage(scrollDelta) {
     }
 }
 
-function scroll(deltaY) {
+function handleWheel(e) {
     if (!ticking) {
         window.requestAnimationFrame(() => {
-            switchPage(deltaY);
+            switchPage(e.wheelDeltaY);
             ticking = false;
         });
         ticking = true;
     }    
 }
 
+function getTouches(e) {
+    return e.touches || e.originalEvent.touches;
+}                                              
+                                                                         
+function handleTouchStart(e) {          
+    touchY = getTouches(e)[0].clientX;
+};                                                
+                                                                         
+function handleTouchMove(e) {
+    if (!touchY) {
+        return;
+    }              
+    let yDiff = touchY - e.touches[0].clientY;
+    window.alert(yDiff);
+    touchY = null;                                             
+};
+
 document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
-document.addEventListener("wheel", (e) => {scroll(e.wheelDeltaY)});
-document.addEventListener("swipe", function() {
-    window.alert(e.detail);
-});
-
-// document.addEventListener("scroll", () => {
-//     lastKnownScrollPosition = window.scrollY;
-//     if (!ticking) {
-//         window.requestAnimationFrame(() => {
-//             console.log(`aboutMe scroll position: ${lastKnownScrollPosition}`);
-//             setTimeout(() => {ticking = false;}, TIMEOUT);
-//         });
-//         ticking = true;
-//     }
-// });
-
-// document.addEventListener("scroll", () => {
-//     lastKnownScrollPosition = window.scrollY;
-//     if (!ticking) {
-//         window.requestAnimationFrame(() => {
-//             console.log(`cv scroll position: ${lastKnownScrollPosition}`);
-//             setTimeout(() => {ticking = false;}, TIMEOUT);
-//         });
-//         ticking = true;
-//     }
-// });
+document.addEventListener("wheel", handleWheel);
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
