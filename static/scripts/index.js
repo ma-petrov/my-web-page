@@ -56,7 +56,10 @@ function handleTouchMove(e) {
     if (!touchY) {
         return;
     }
-    scroll(getY(e) - touchY);
+    let deltaY = getY(e) - touchY;
+    if (Math.abs(deltaY) > 100) {
+        scroll(deltaY);
+    }
     touchY = null;                                             
 };
 
