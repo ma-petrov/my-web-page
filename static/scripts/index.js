@@ -46,7 +46,13 @@ function scroll(deltaY) {
 document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
 document.addEventListener("wheel", (e) => {scroll(e.wheelDeltaY)});
-document.addEventListener("scroll", (e) => {scroll(e.deltaY)});
+document.addEventListener("touchmove", (e) => {
+    m = ""
+    e.touches.forEach(t => {
+        m += t.clientY.toString() + " ";
+    });
+    window.alert(m);
+});
 document.addEventListener("scroll", (e) => {
     let d = 0;
     try {
