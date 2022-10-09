@@ -46,7 +46,7 @@ function scroll(deltaY) {
 document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
 document.addEventListener("wheel", (e) => {scroll(e.wheelDeltaY)});
-myBlock.addEventListener("swipe", function() {
+document.addEventListener("swipe", function() {
     window.alert(e.detail);
 });
 
