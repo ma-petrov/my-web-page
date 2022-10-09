@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        - PORT=8080
+  
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.dev.Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - web
