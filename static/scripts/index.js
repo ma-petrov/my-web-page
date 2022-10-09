@@ -33,35 +33,35 @@ function switchPage(scrollDelta) {
     }
 }
 
-function handleWheel(e) {
+function scroll(deltaY) {
     if (!ticking) {
         window.requestAnimationFrame(() => {
-            switchPage(e.wheelDeltaY);
+            switchPage(deltaY);
             ticking = false;
         });
         ticking = true;
     }    
 }
 
-function getTouches(e) {
-    return e.touches || e.originalEvent.touches;
+function getY(e) {
+    let touches = e.touches || e.originalEvent.touches;
+    return touches[0].clientY;
 }                                              
                                                                          
 function handleTouchStart(e) {          
-    touchY = getTouches(e)[0].clientX;
+    touchY = getY(e);
 };                                                
                                                                          
 function handleTouchMove(e) {
     if (!touchY) {
         return;
-    }              
-    let yDiff = touchY - e.touches[0].clientY;
-    window.alert(yDiff);
+    }
+    scroll(touchY - getY(e));
     touchY = null;                                             
 };
 
 document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
-document.addEventListener("wheel", handleWheel);
+document.addEventListener("wheel", () => {scroll(e.wheelDeltaY);});
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
