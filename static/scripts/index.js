@@ -47,6 +47,16 @@ document.getElementById("open-cv-button").addEventListener("click", openCvPage);
 document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
 document.addEventListener("wheel", (e) => {scroll(e.wheelDeltaY)});
 document.addEventListener("scroll", (e) => {scroll(e.deltaY)});
+document.addEventListener("scroll", (e) => {
+    let d = 0;
+    try {
+        d = e.deltaY;
+        window.alert(`scroll ${d}`);
+    } catch (error) {
+        window.alert(`Error: ${error}`);
+    }
+    scroll(d);
+});
 
 // document.addEventListener("scroll", () => {
 //     lastKnownScrollPosition = window.scrollY;
