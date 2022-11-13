@@ -16,16 +16,14 @@ body {
 	font-style: normal;
 	font-weight: normal;
     font-size: min(4vw, 2vh);
-    overflow: hidden;
 }
 
 .container {
-    position: fixed;
     width: 100vw;
     height: 100vh;
-    transition: ease;
+    /* transition: ease;
     transition-property: top;
-    transition-duration: 0.5s;
+    transition-duration: 0.5s; */
 }
 
 .x-center {
@@ -42,25 +40,16 @@ body {
 .inherit-width {width: inherit;}
 .inherit-height {height: inherit;}
 
-.about-me {
-    top: 0vh;
+#about-me {
     color: var(--main-color-light);
     background-color: var(--bg-color-light);
 }
 
 .button {cursor: pointer;}
 
-.cv {
-    top: 100vh;
+#cv {
     color: var(--main-color-dark);
     background-color: var(--bg-color-dark);
-}
-
-.avatar {
-    width: min(50vw, 25vh);
-    height: min(50vw, 25vh);
-    border-radius: 100%;
-    object-fit: cover;
 }
 
 .full-margin-top {margin-top: min(5vw, 2.5vh);}
@@ -110,7 +99,7 @@ body {
     margin-bottom: min(30vw, 15vh);
 }
 
-.cv button {
+#cv button {
     width: 100%;
     height: min(7vw, 3.5vh);
     margin-top: min(7.5vw, 3.75vh);
@@ -125,22 +114,36 @@ body {
     cursor: pointer;
 }
 
-.cv a {color: var(--main-color-dark);}
-.cv a:active {color: var(--main-color-dark);}
-.cv a:visited {color: var(--main-color-dark);}
+#cv a {color: var(--main-color-dark);}
+#cv a:active {color: var(--main-color-dark);}
+#cv a:visited {color: var(--main-color-dark);}
 
-.title {
+h1 {
     margin-bottom: min(2.5vw, 1.25vh);
     font-size: min(6vw, 3vh);
 }
-.cv .title {
+#about-me h1 {
+    margin-top: min(10vw, 5vh);
+}
+#cv h1 {
     margin-top: min(7.5vw, 3.75vh);
-    padding-bottom: min(2.5vw, 1.25vh);
     border-bottom: 1px solid var(--main-color-dark);
 }
 
-.text-justify-align {
+#about-me p {
+    margin: 0px;
+}
+#cv p {
+    margin-top: 0px;
     margin-bottom: min(2.5vw, 1.25vh);
-    font-size: min(4vw, 2vh);
     text-align: justify;
 }
+
+.avatar-container img {
+    width: min(50vw, 25vh);
+    height: min(50vw, 25vh);
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.text-center {text-align: center;}

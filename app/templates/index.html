@@ -9,16 +9,18 @@
     </head>
 
     <body>
-        <div class="container about-me" id="about-me">
+        <div class="container" id="about-me">
             <div class="y-center inherit-height">
 
-                <div class="x-center">
-                    <img class="avatar" id="avatar" src="/static/images/avatar.png" alt="clipdecliprepeat">
+                <div class="x-center avatar-container">
+                    <img src="/static/images/avatar.png" alt="clipdecliprepeat">
                 </div>
 
-                <div class="x-center double-margin-top title">Mikhail Petrov</div>
-                <div class="x-center">Python programmer</div>
-                <div class="x-center">Data analyst</div>
+                <div class="text-center">
+                    <h1>Mikhail Petrov</h1>
+                    <p>Python programmer</p>
+                    <p>Data analyst</p>
+                </div>
 
                 {% if links %}
                     <div class="x-center full-margin-top">
@@ -46,10 +48,10 @@
             </div>
         </div>
 
-        <div class="container cv" id="cv">
+        <div class="container" id="cv">
             <div class="y-center inherit-height">
 
-                <div class="x-center button full-margin-top" id="close-cv-button">
+                <div class="x-center button full-margin-top" id="open-aboutme-button">
                     <div>
                         <div class="x-center arrow-container">
                             <img class="arrow arrow-up" src="/static/images/icons/arrow-up.svg">
@@ -60,18 +62,18 @@
 
                 <div class="x-center tail-margin-bottom">
                     <div class="cv-content">
-                        <div class="title">Experience</div>
-                        <div class="text-justify-align">– OTP Bank (July 2019 - present), senior risk portfolio analyst</div>
-                        <div class="text-justify-align">– Kazantracks project (April 2022 - present), fullstack developer. <a href="https://kazantracks.ru">Kazantracks website</a>, <a href="https://github.com/ma-petrov/routsweb">Project repository</a></div>
+                        <h1>Experience</h1>
+                        <p>– OTP Bank (July 2019 - present), senior risk portfolio analyst</p>
+                        <p>– Kazantracks project (April 2022 - present), fullstack developer. <a href="https://github.com/ma-petrov/routsweb">Project repository</a></p>
 
-                        <div class="title">Skills</div>
-                        <div class="text-justify-align">– Python, Django, Asyncio, Aiohttp, JavaScript</div>
-                        <div class="text-justify-align">– Oracle SQL, Postgresql</div>
-                        <div class="text-justify-align">– Docker, Gunicorn, Nginx, Linux, Apache Airflow</div>
-                        <div class="text-justify-align">– Statistics</div>
+                        <h1>Skills</h1>
+                        <p>– Python, Django, Asyncio, Aiohttp, JavaScript</p>
+                        <p>– Oracle SQL, Postgresql</p>
+                        <p>– Docker, Gunicorn, Nginx, Linux, Apache Airflow</p>
+                        <p>– Statistics</p>
 
-                        <div class="title">Education</div>
-                        <div class="text-justify-align">Higher School of Economics, 2017-2021, faculty of informatics and computer technology</div>
+                        <h1>Education</h1>
+                        <p>Higher School of Economics, 2017-2021, faculty of informatics and computer technology</p>
                         
                         <button onclick="window.open('/static/files/cv.pdf')">Download full CV</button>
                         

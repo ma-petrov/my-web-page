@@ -1,67 +1,46 @@
-const ABOUT_ME = 1;
-const CV = 2;
+const ABOUT_ME = 0;
+const CV = 1;
 
-const aboutMe = document.getElementById("about-me");
-const cv = document.getElementById("cv");
 
-let currentPage = ABOUT_ME;
-let ticking = false;                      
-let touchY = null;
+let prevScrollTop = window.pageYOffset;
+let containerId = 0;
 
-function openCvPage() {
-    if (currentPage == ABOUT_ME) {
-        aboutMe.style.top = "-100vh";
-        cv.style.top = "0vh";
-        currentPage = CV;
-    }
+
+function setScrollTop(containerId) {
+    prevScrollTop = document.documentElement.clientHeight * containerId;
+    window.scroll({top: prevScrollTop, behavior: "smooth"});
 }
 
-function closeCvPage() {
-    if (currentPage == CV) {
-        aboutMe.style.top = "0vh";
-        cv.style.top = "100vh";
-        currentPage = ABOUT_ME;
+
+function scrollPage() {
+    const threshold = Math.floor(document.documentElement.clientHeight/5);
+    const scrollTop = window.pageYOffset;
+    const scrollDelta = scrollTop - prevScrollTop;
+    if (scrollDelta > threshold) {
+        containerId += 1;
     }
+    else if (scrollDelta < -threshold) {
+        containerId -= 1;
+    }
+    setScrollTop(containerId)
 }
 
-function switchPage(scrollDelta) {
-    if (scrollDelta < 0) {
-        openCvPage();
-    }
-    else {
-        closeCvPage();
-    }
-}
 
-function scroll(deltaY) {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            switchPage(deltaY);
-            ticking = false;
-        });
-        ticking = true;
-    }    
-}
+let lastScrollTime = new Date();
 
-function getY(e) {
-    let touches = e.touches || e.originalEvent.touches;
-    return touches[0].clientY;
-}                                              
-                                                                         
-function handleTouchStart(e) {          
-    touchY = getY(e);
-};                                                
-                                                                         
-function handleTouchMove(e) {
-    if (!touchY) {
-        return;
-    }
-    scroll(getY(e) - touchY);
-    touchY = null;                                             
-};
 
-document.getElementById("open-cv-button").addEventListener("click", openCvPage);
-document.getElementById("close-cv-button").addEventListener("click", closeCvPage);
-document.addEventListener("wheel", () => {scroll(e.wheelDeltaY);});
-document.addEventListener('touchstart', handleTouchStart, false);        
-document.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener("scroll", () => {
+    lastScrollTime = new Date();
+    setTimeout(() => {
+        let currentTime = new Date();
+        if (currentTime - lastScrollTime > 90) { 
+            document.dispatchEvent(new Event("scrollend", {bubbles: true}));
+        }
+    }, 100);
+});
+
+
+document.addEventListener("scrollend", scrollPage);
+document.addEventListener("touchend", scrollPage);
+// document.getElementById("open-aboutme-button").addEventListener("click", () => {if (containerId != ABOUT_ME) {setScrollTop(ABOUT_ME);}});
+// document.getElementById("open-cv-button").addEventListener("click", () => {if (containerId != CV) {setScrollTop(CV);}});

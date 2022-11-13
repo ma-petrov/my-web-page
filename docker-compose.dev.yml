@@ -11,5 +11,7 @@ services:
       dockerfile: nginx.dev.Dockerfile
     ports:
       - "80:80"
+    volumes:
+      - ./static:/static
     depends_on:
       - web
