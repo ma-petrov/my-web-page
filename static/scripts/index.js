@@ -42,6 +42,6 @@ document.addEventListener("scroll", () => {
 
 
 document.addEventListener("scrollend", scrollPage);
-// document.addEventListener("touchend", scrollPage);
+document.addEventListener("touchend", scrollPage);
 // document.getElementById("open-aboutme-button").addEventListener("click", () => {if (containerId != ABOUT_ME) {setScrollTop(ABOUT_ME);}});
 // document.getElementById("open-cv-button").addEventListener("click", () => {if (containerId != CV) {setScrollTop(CV);}});
