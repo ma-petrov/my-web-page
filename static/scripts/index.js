@@ -16,6 +16,7 @@ function scrollPage() {
     const threshold = Math.floor(document.documentElement.clientHeight/5);
     const scrollTop = window.pageYOffset;
     const scrollDelta = scrollTop - prevScrollTop;
+    console.log(`height: ${threshold}, scrollTop: ${scrollTop}, scrollDelta: ${scrollDelta}`);
     if (scrollDelta > threshold) {
         containerId += 1;
     }
