@@ -1,60 +1,51 @@
-const ABOUT_ME = 0;
-const CV = 1;
+class Container {
+    constructor(element, id) {
+        this.element = element;
+        this.id = id;
+        this.top = this.getInitialTop(id);
+    }
 
-const about_me = document.querySelector('#about-me');
-const cv = document.querySelector('#cv');
+    getInitialTop(i) {
+        return 100*i;
+    }
 
-let prevScrollTop = window.pageYOffset;
-let containerId = 0;
+    updateTop() {
+        this.element.style.top = `${String(this.top)}vh`;
+    }
 
-function setScrollTop(containerId) {
-    prevScrollTop = document.documentElement.clientHeight * containerId;
-    window.scroll({top: prevScrollTop, behavior: "smooth"});
+    moveUp() {
+        this.top += 100;
+        this.updateTop();
+    }
+
+    moveDown() {
+        this.top -= 100;
+        this.updateTop();
+    }
 }
 
-function scrollPage() {
-    const threshold = Math.floor(document.documentElement.clientHeight/5);
-    const scrollTop = window.pageYOffset;
-    const scrollDelta = scrollTop - prevScrollTop;
-    console.log(`height: ${threshold}, scrollTop: ${scrollTop}, scrollDelta: ${scrollDelta}`);
-    if (scrollDelta > threshold) {
-        containerId += 1;
-    }
-    else if (scrollDelta < -threshold) {
-        containerId -= 1;
-    }
-    setScrollTop(containerId)
-}
-
-
-let lastScrollTime = new Date();
-
-
-document.addEventListener("scroll", () => {
-    lastScrollTime = new Date();
-    setTimeout(() => {
-        let currentTime = new Date();
-        if (currentTime - lastScrollTime > 90) { 
-            document.dispatchEvent(new Event("scrollend", {bubbles: true}));
+class ContainerSwitchManager {
+    constructor() {
+        this.containers = new Array();
+        let containers = document.querySelectorAll(".container");
+        for (let id = 0; id < containers.length; id += 1) {
+            this.containers.push(new Container(containers[id], id));
         }
-    }, 100);
-});
-
-
-document.addEventListener("scrollend", scrollPage);
-document.addEventListener("touchend", scrollPage);
-document.querySelector("#open-aboutme-button").addEventListener("click", () => {
-    if (containerId != ABOUT_ME) {
-        containerId = ABOUT_ME;
-        about_me.style.top = "0px";
-        cv.style.top = "100vh";
+        document.querySelectorAll(".move-up-button").forEach(e => {
+            e.addEventListener("click", () => {this.moveUp();})
+        });
+        document.querySelectorAll(".move-down-button").forEach(e => {
+            e.addEventListener("click", () => {this.moveDown();})
+        });
     }
-});
 
-document.querySelector("#open-cv-button").addEventListener("click", () => {
-    if (containerId != CV) {
-        containerId = CV;
-        about_me.style.top = "-100vh";
-        cv.style.top = "0px";
+    moveUp() {
+        this.containers.forEach(c => {c.moveUp();});
     }
-});
+
+    moveDown() {
+        this.containers.forEach(c => {c.moveDown();});
+    }
+}
+
+const containerSwitchManager = new ContainerSwitchManager();
