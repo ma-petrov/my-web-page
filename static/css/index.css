@@ -16,14 +16,16 @@ body {
 	font-style: normal;
 	font-weight: normal;
     font-size: min(4vw, 2vh);
+    overflow: hidden;
 }
 
 .container {
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    /* transition: ease;
+    transition: ease;
     transition-property: top;
-    transition-duration: 0.5s; */
+    transition-duration: 0.5s;
 }
 
 .x-center {
@@ -41,6 +43,7 @@ body {
 .inherit-height {height: inherit;}
 
 #about-me {
+    top: 0px;
     color: var(--main-color-light);
     background-color: var(--bg-color-light);
 }
@@ -48,6 +51,7 @@ body {
 .button {cursor: pointer;}
 
 #cv {
+    top: 100vh;
     color: var(--main-color-dark);
     background-color: var(--bg-color-dark);
 }
