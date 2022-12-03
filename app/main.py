@@ -1,10 +1,15 @@
-from aiohttp.web import Application, get, run_app
+from aiohttp.web import Application, get, post, run_app
 
 from utils import render_template
 from links import Link
 
 
+with open('/opt/mnt/logs/js.log', 'w') as f:
+    f.write('Hello\n')
+
+
 async def index(request):
+    print('loaded')
     return render_template(
         'templates/index.html',
         links=[
@@ -17,8 +22,17 @@ async def index(request):
     )
 
 
+async def log(request):
+    with open('/opt/mnt/logs/js.log', 'a') as f:
+        try:
+            f.write(f'{await request.content.readline()}\n')
+        except Exception as e:
+            f.write(e)
+
+
 app = Application()
 app.add_routes([
     get('/', index),
+    post('/log', log),
 ])
 run_app(app)

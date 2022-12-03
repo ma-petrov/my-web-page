@@ -4,6 +4,8 @@ services:
       context: .
       args:
         - PORT=8080
+    volumes:
+      - ./logs:/opt/mnt/logs
   
   nginx:
     image: nginx:1-alpine
