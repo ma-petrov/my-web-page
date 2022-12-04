@@ -57,34 +57,7 @@ function drawGameField(ctx) {
         for (let j = 0; j < 3; j += 1) {
             drawTile(ctx, i, j, "default");
         }
-    }
-
-    // ctx.fillRect(0, 0, 150, 150);
-    // ctx.translate(75, 75);
-
-    // // Create a circular clipping path
-    // ctx.beginPath();
-    // ctx.arc(0, 0, 60, 0, Math.PI * 2, true);
-    // ctx.clip();
-
-    // // draw background
-    // var lingrad = ctx.createLinearGradient(0, -75, 0, 75);
-    // lingrad.addColorStop(0, '#232256');
-    // lingrad.addColorStop(1, '#143778');
-
-    // ctx.fillStyle = lingrad;
-    // ctx.fillRect(-75, -75, 150, 150);
-
-    // draw stars
-    // for (var j = 1; j < 50; j++) {
-    //     ctx.save();
-    //     ctx.fillStyle = '#fff';
-    //     ctx.translate(75 - Math.floor(Math.random() * 150),
-    //                 75 - Math.floor(Math.random() * 150));
-    //     drawStar(ctx, Math.floor(Math.random() * 4) + 2);
-    //     ctx.restore();
-    // }
-    
+    }    
 }
 
 function drawCross(ctx, i, j, frame) {
@@ -281,8 +254,8 @@ canvas.addEventListener("click", (e) => {
     if (coordinatesInFieldArea(c) && notSetted(c) && !isWin) {
         drawTile(ctx, c.x, c.y, "default");
         if (moveCounter % 2 == 0) {
-            for (let frame = 0; frame < 10; frame += 1) {
-                setTimeout(() => {drawCross(ctx, c.x, c.y, frame);}, frame * 50);
+            for (let frame = 0; frame < 25; frame += 1) {
+                setTimeout(() => {drawCross(ctx, c.x, c.y, frame);}, frame * 20);
             }
             setCross(c.x, c.y);
         }
@@ -292,8 +265,8 @@ canvas.addEventListener("click", (e) => {
             }
             setCircle(c.x, c.y);
         }
-        checkWin();
         moveCounter += 1;
+        checkWin();
     }
 });
 
