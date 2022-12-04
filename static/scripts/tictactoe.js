@@ -278,7 +278,7 @@ canvas.addEventListener("click", (e) => {
     const cord = getClickCoordinates(canvas, e);
     const trnC = transformCoordinates(cord);
     const c = getTileCoordinates(trnC);
-    if (coordinatesInFieldArea(c) && notSetted(c)) {
+    if (coordinatesInFieldArea(c) && notSetted(c) && !isWin) {
         drawTile(ctx, c.x, c.y, "default");
         if (moveCounter % 2 == 0) {
             for (let frame = 0; frame < 10; frame += 1) {
@@ -299,6 +299,7 @@ canvas.addEventListener("click", (e) => {
 
 
 let field = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+let isWin = false;
 
 function notSetted(c) {
     return field[c.x][c.y] == 0;
@@ -380,6 +381,7 @@ function checkWin() {
             if (check == 2) {
                 fig = "Circles"
             }
+            isWin = true;
             setTimeout(() => {
                 alert(`${fig} win!`);
                 window.location.href = "/tictactoe";
