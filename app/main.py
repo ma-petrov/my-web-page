@@ -17,8 +17,13 @@ async def index(request):
     )
 
 
+async def tictactoe(request):
+    return render_template('templates/tictactoe.html')
+
+
 app = Application()
 app.add_routes([
     get('/', index),
+    get('/tictactoe', tictactoe),
 ])
 run_app(app)

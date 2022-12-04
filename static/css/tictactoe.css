@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.y-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#game-field {
+    width: 300px;
+    height: 150px;
+}
