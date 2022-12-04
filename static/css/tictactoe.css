@@ -5,12 +5,22 @@ body {
     height: 100vh;
     margin: 0px;
     overflow: hidden;
+
+    font-family: 'VisiaPro';
+	font-style: normal;
+	font-weight: normal;
+    font-size: min(4vw, 2vh);
 }
 
 .y-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.bar {
+    height: 10vh;
+    text-align: center;
 }
 
 #game-field {
