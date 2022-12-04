@@ -300,13 +300,6 @@ function checkLine(line) {
 }
 
 function checkWin() {
-    if (moveCounter == 9) {
-        isWin = true;
-        setTimeout(() => {
-            alert("Draw!");
-            window.location.href = "/tictactoe";
-        }, 500);
-    }
     lineIndexes = [
         {
             first: {x: 0, y: 0},
@@ -367,5 +360,11 @@ function checkWin() {
                 window.location.href = "/tictactoe";
             }, 500);
         }
-    }); 
+    });
+    if (moveCounter == 9 && !isWin) {
+        setTimeout(() => {
+            alert("Draw!");
+            window.location.href = "/tictactoe";
+        }, 500);
+    }
 }
