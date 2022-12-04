@@ -100,7 +100,7 @@ function drawCross(ctx, i, j, frame) {
     ctx.lineTo(x + 50, y_wo_frame - 22.5);
     ctx.clip();
 
-    const y = 75 + i * 25 - j * 25 + (25 - frame * 2.5);
+    const y = 75 + i * 25 - j * 25 + (25 - frame);
 
     ctx.beginPath();
     ctx.moveTo(x + 45, y);
@@ -170,7 +170,7 @@ function drawCircle(ctx, i, j, frame) {
     ctx.lineTo(x + 50, y_wo_frame - 22.5);
     ctx.clip();
 
-    const y = 75 + i * 25 - j * 25 + (25 - frame * 2.5);
+    const y = 75 + i * 25 - j * 25 + (25 - frame);
 
     ctx.beginPath();
     ctx.moveTo(x + 26, y);
@@ -287,8 +287,8 @@ canvas.addEventListener("click", (e) => {
             setCross(c.x, c.y);
         }
         else {
-            for (let frame = 0; frame < 10; frame += 1) {
-                setTimeout(() => {drawCircle(ctx, c.x, c.y, frame);}, frame * 50);
+            for (let frame = 0; frame < 25; frame += 1) {
+                setTimeout(() => {drawCircle(ctx, c.x, c.y, frame);}, frame * 20);
             }
             setCircle(c.x, c.y);
         }
@@ -327,6 +327,13 @@ function checkLine(line) {
 }
 
 function checkWin() {
+    if (moveCounter == 9) {
+        isWin = true;
+        setTimeout(() => {
+            alert("Draw!");
+            window.location.href = "/tictactoe";
+        }, 500);
+    }
     lineIndexes = [
         {
             first: {x: 0, y: 0},
