@@ -6,33 +6,31 @@ if (!canvas.getContext) {
 
 const ctx = canvas.getContext("2d");
 
-function drawTile(ctx, i, j, status) {
-    const x = j * 50 + i * 50;
-    const y = 75 + i * 25 - j * 25;
+function p(x, y) {
+    return {x: x, y: y}
+}
 
+function drawPath(points, delta, fillStyle) {
     ctx.beginPath();
-    ctx.moveTo(x + 5, y);
-    ctx.lineTo(x + 50, y + 22.5);
-    ctx.lineTo(x + 50, y - 22.5);
-    if (status == "focused") {
-        ctx.fillStyle = "#A0A0A0";
+    ctx.moveTo(delta.x + points[0].x, delta.y + points[0].y);
+    for (let i = 1; i < points.length; i += 1) {
+        ctx.lineTo(delta.x + points[i].x, delta.y + points[i].y);
     }
-    else {
-        ctx.fillStyle = "#D0D0D0";
-    }
+    ctx.fillStyle = fillStyle;
     ctx.fill();
+}
 
-    ctx.beginPath();
-    ctx.moveTo(x + 95, y);
-    ctx.lineTo(x + 50, y + 22.5);
-    ctx.lineTo(x + 50, y - 22.5);
-    if (status == "focused") {
-        ctx.fillStyle = "#808080";
+function drawTile(i, j, style) {
+    const delta = {
+        x: j * 50 + i * 50,
+        y: 75 + i * 25 - j * 25,
     }
-    else {
-        ctx.fillStyle = "#B0B0B0";
-    }
-    ctx.fill();
+
+    let fillStyle = {focused: "#A0A0A0", default: "#D0D0D0"}[style]
+    drawPath([p(5, 0), p(50, 22.5), p(50, -22.5)], delta, fillStyle);
+
+    fillStyle = {focused: "#808080", default: "#B0B0B0"}[style]
+    drawPath([p(95, 0), p(50, 22.5), p(50, -22.5)], delta, fillStyle);
 }
 
 function drawStar(ctx, r) {
@@ -55,7 +53,7 @@ function drawStar(ctx, r) {
 function drawGameField(ctx) {
     for (let i = 0; i < 3; i += 1) {
         for (let j = 0; j < 3; j += 1) {
-            drawTile(ctx, i, j, "default");
+            drawTile(i, j, "default");
         }
     }    
 }
@@ -232,16 +230,16 @@ document.addEventListener("mousemove", (e) => {
     if (e.target == canvas && coordinatesInFieldArea(c)) {
         if (p.x != c.x || p.y != c.y) {
             if (notPointed(c)) {
-                drawTile(ctx, c.x, c.y, "focused");
+                drawTile(c.x, c.y, "focused");
             }
             if (notPointed(p)) {
-                drawTile(ctx, p.x, p.y, "default");
+                drawTile(p.x, p.y, "default");
             }
             prevTileCoordinates = {x: c.x, y: c.y};
         }
     }
     else if (notPointed(p)) {
-        drawTile(ctx, p.x, p.y, "default");
+        drawTile(p.x, p.y, "default");
     }
 });
 
@@ -252,7 +250,7 @@ canvas.addEventListener("click", (e) => {
     const trnC = transformCoordinates(cord);
     const c = getTileCoordinates(trnC);
     if (coordinatesInFieldArea(c) && notSetted(c) && !isWin) {
-        drawTile(ctx, c.x, c.y, "default");
+        drawTile(c.x, c.y, "default");
         if (moveCounter % 2 == 0) {
             for (let frame = 0; frame < 25; frame += 1) {
                 setTimeout(() => {drawCross(ctx, c.x, c.y, frame);}, frame * 20);
